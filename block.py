@@ -1,7 +1,7 @@
 import hashlib
 
 class Block():
-    def __init__(self, index, previous_hash, timestamp, data):
+    def __init__(self, transaction, previous_hash, index):
         """
         Initialize a new block with the given parameters.
         :param index: The index of the block in the blockchain.
@@ -13,9 +13,9 @@ class Block():
         # index, previous_hash, timestamp, nonce, data, hash
         self.index = index
         self.previous_hash = previous_hash
-        self.timestamp = timestamp
+        self.timestamp = transaction.timestamp
         self.nonce = 0
-        self.data = data
+        self.data = transaction
         self.hash = self.compute_hash()
 
     def compute_hash(self):
